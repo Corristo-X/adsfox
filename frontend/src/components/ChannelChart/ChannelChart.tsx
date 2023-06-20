@@ -28,9 +28,6 @@ const ChannelChart: React.FC = () => {
 
     fetchChannels();
   }, []);
-
-
-
   return (
     <div style={chartStyle}>
       <h1>Wykres</h1>
