@@ -1,4 +1,4 @@
-# Nazwa projektu
+# Projekt
 
 ## Opis
 Projekt składa się z dwóch części: Backend napisany w PHP z wykorzystaniem frameworka Laravel oraz Frontend napisany w React z wykorzystaniem TypeScript.
