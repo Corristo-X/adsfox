@@ -46,7 +46,6 @@ const ChannelForm: React.FC<ChannelFormProps> = ({ onSubmit, initialValues }) =>
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
 
-        // Przygotowanie danych
         const data = {
             name,
             client_count: parseInt(clientCount, 10),
@@ -54,18 +53,15 @@ const ChannelForm: React.FC<ChannelFormProps> = ({ onSubmit, initialValues }) =>
 
         try {
             if (id) {
-                // Edycja istniejącego kanału
                 await axios.put(`http://localhost:8000/api/channels/${id}`, data);
             } else {
-                // Dodawanie nowego kanału
                 const response = await axios.post('http://localhost:8000/api/channels', data);
                 const newChannel: Channel = response.data;
-                onSubmit(newChannel); // Przekazanie nowego kanału do funkcji onSubmit
+                onSubmit(newChannel); 
             }
             navigate('/channels');
         } catch (error) {
             console.error('Error submitting form: ', error);
-            // Obsługa błędu
         }
     };
 

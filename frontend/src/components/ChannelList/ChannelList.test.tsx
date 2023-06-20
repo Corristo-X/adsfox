@@ -21,7 +21,6 @@ const server = setupServer(
   const channelId = req.params.id;
   const updatedChannel = req.body;
 
-  // Tutaj możesz zaktualizować dane kanału na serwerze
 
   return res(ctx.status(200), ctx.json(updatedChannel));
 })
@@ -57,7 +56,6 @@ describe('ChannelList', () => {
     const deleteButtons = await findAllByText('Usuń');
     fireEvent.click(deleteButtons[0]);
 
-    // We need to wait for the update after deletion.
     await waitFor(() => {
       expect(queryByText('Test Channel 1')).not.toBeInTheDocument();
     });

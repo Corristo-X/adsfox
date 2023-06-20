@@ -20,8 +20,6 @@ afterAll(() => server.close());
 describe('ChannelChart', () => {
   it('renders correctly and fetches data from server', async () => {
     render(<ChannelChart />);
-
-    // Check that data is fetched and labels are displayed
     await waitFor(() => {
       expect(screen.getByText('Test Channel 1 (10 - 33%)')).toBeInTheDocument();
       expect(screen.getByText('Test Channel 2 (20 - 67%)')).toBeInTheDocument();
