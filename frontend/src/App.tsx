@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link, useParams } from 'react-router-dom';
 import axios from 'axios';
-import ChannelForm from './components/ChannelForm';
-import ChannelList from './components/ChannelList';
-import ChannelChart from './components/ChannelChart';
+import ChannelForm from './components/ChannelForm/ChannelForm';
+import ChannelList from './components/ChannelList/ChannelList';
+import ChannelChart from './components/ChannelChart/ChannelChart';
+import { MemoryRouter } from 'react-router-dom';
 
 interface Channel {
   id: number;
@@ -47,6 +48,11 @@ const App: React.FC = () => {
 
     fetchChannels();
   }, []);
+  const TestApp: React.FC = () => (
+    <MemoryRouter>
+      <App />
+    </MemoryRouter>
+  );
   
   return (
     <Router>
@@ -66,6 +72,7 @@ const App: React.FC = () => {
         <Route path="/channels/:id/edit" element={<EditChannel />} />
         <Route path="/channels" element={<ChannelList />} />
         <Route path="/chart" element={<ChannelChart />} />
+        <Route path="/" element={<ChannelList />} />
       </Routes>
     </Router>
   );
