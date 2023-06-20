@@ -33,6 +33,7 @@ const ChannelChart: React.FC = () => {
 
   return (
     <div style={chartStyle}>
+      <h1>Wykres</h1>
     <PieChart width={800} height={400}>
       <Pie
         dataKey="client_count"
